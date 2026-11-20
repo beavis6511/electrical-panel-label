@@ -1,0 +1,100 @@
+{
+  "page": {
+    "format": "A4",
+    "orientation": "portrait",
+    "marge_mm": 10,
+    "espace_entre_rangees_mm": 8,
+    "afficher_titres": true
+  },
+  "etiquette": {
+    "largeur_module_mm": 17.5,
+    "hauteur_mm": 25,
+    "marge_interne_mm": 1,
+    "bordure": true,
+    "ratio_image": 0.5,
+    "taille_texte_max_pt": 9,
+    "taille_texte_min_pt": 4,
+    "gras": true
+  },
+  "rangees": [
+    {
+      "titre": "Rangée 1",
+      "etiquettes": [
+        {
+          "modules": 2,
+          "texte": "Différentiel 30 mA",
+          "image": "differentiel"
+        },
+        {
+          "texte": "Éclairage",
+          "image": "lampe"
+        },
+        {
+          "texte": "Prises salon",
+          "image": "prise"
+        },
+        {
+          "texte": "Prises chambres",
+          "image": "prise"
+        },
+        {
+          "texte": "Prises cuisine",
+          "image": "prise"
+        },
+        {
+          "texte": "Four",
+          "image": "four"
+        },
+        {
+          "texte": "Plaque",
+          "image": "plaque"
+        },
+        {
+          "texte": "Texte seul, sans image"
+        }
+      ]
+    },
+    {
+      "titre": "Rangée 2",
+      "etiquettes": [
+        {
+          "modules": 2,
+          "texte": "Différentiel 30 mA",
+          "image": "differentiel"
+        },
+        {
+          "texte": "Lave-linge",
+          "image": "lave-linge"
+        },
+        {
+          "texte": "Lave-vaisselle",
+          "image": "lave-vaisselle"
+        },
+        {
+          "texte": "Sèche-linge",
+          "image": "seche-linge"
+        },
+        {
+          "texte": "Chauffe-eau",
+          "image": "chauffe-eau"
+        },
+        {
+          "texte": "Chauffage",
+          "image": "chauffage"
+        },
+        {
+          "texte": "VMC",
+          "image": "vmc"
+        },
+        {
+          "texte": "Volets roulants",
+          "image": "volet"
+        },
+        {
+          "texte": "Multimédia",
+          "image": "multimedia"
+        }
+      ]
+    }
+  ]
+}
