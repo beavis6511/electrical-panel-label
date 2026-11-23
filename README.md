@@ -146,7 +146,7 @@ Par défaut, seuls un trait en haut et un trait en bas sont tracés, pour pouvoi
 
 #### Repères techniques (IEC 81346)
 
-La clé `repere` affiche un repère de type `-Q1` ou `-K2` au-dessus de l'icône. Selon la norme IEC 81346, la première lettre indique la fonction de l'appareil:
+La clé `repere` affiche un repère de type `Q1` ou `K2` au-dessus de l'icône. Selon la norme IEC 81346, la première lettre indique la fonction de l'appareil:
 
 | Lettre | Fonction | Appareils |
 |---|---|---|
@@ -154,7 +154,7 @@ La clé `repere` affiche un repère de type `-Q1` ou `-K2` au-dessus de l'icône
 | `K` | Commande | Contacteur (par exemple un contacteur jour/nuit pour chauffe-eau: K1), télérupteur, relais auxiliaire, minuterie |
 
 ```json
-{ "repere": "-Q3", "texte": "Prises salon", "image": "prise" }
+{ "repere": "Q3", "texte": "Prises salon", "image": "prise" }
 ```
 
 Le repère est libre: le générateur l'affiche tel quel, sans le contrôler ni le numéroter.
