@@ -170,7 +170,7 @@ Le repère est libre: le générateur l'affiche tel quel, sans le contrôler ni 
 
 Liste affichée par `python3 generateur_etiquettes.py --liste-icones`:
 
-`lampe`, `prise`, `four`, `plaque`, `lave-linge`, `lave-vaisselle`, `seche-linge`, `chauffage`, `frigo`, `volet`, `chauffe-eau`, `vmc`, `prise-exterieure`, `multimedia`, `sonnette`, `portail`, `differentiel`, `general`, `borne-ve`, `cabanon`, `seche-serviettes`, `pompe-a-chaleur`, `telerupteur`, `indicateur-conso`.
+`lampe`, `prise`, `four`, `plaque`, `lave-linge`, `lave-vaisselle`, `seche-linge`, `chauffage`, `frigo`, `volet`, `chauffe-eau`, `vmc`, `prise-ext`, `multimedia`, `sonnette`, `portail`, `differentiel`, `general`, `borne-ve`, `cabanon`, `seche-serviettes`, `pompe-a-chaleur`, `telerupteur`, `indicateur-conso`.
 
 ![Aperçu des icônes intégrées](apercu_icones.png)
 
