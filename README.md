@@ -115,6 +115,7 @@ Liste de rangées. Chaque rangée correspond à une ligne du tableau électrique
 |---|---|---|
 | `modules` | `1` | Nombre de modules occupés. La largeur vaut `modules` × `largeur_module_mm` |
 | `texte` | `""` | Texte principal |
+| `vide` | `false` | Module vide: l'étiquette occupe `modules` modules sans rien afficher (ni texte, ni image, ni cadre). Sert à laisser un espace entre deux disjoncteurs |
 | `repere` | `""` | Repère technique affiché en petit au-dessus de l'icône (voir ci-dessous) |
 | `sous_texte` | `""` | Petit texte en bas (calibre, type, etc.) |
 | `image` | aucune | Nom d'une icône intégrée ou chemin d'un PNG |
@@ -128,6 +129,16 @@ Exemple:
 ```
 
 Une étiquette peut n'avoir que du texte, que de l'image, ou les deux.
+
+#### Modules vides
+
+Pour laisser un espace entre deux disjoncteurs, ajoute une étiquette `vide`:
+
+```json
+{ "vide": true, "modules": 2 }
+```
+
+Elle compte dans le total de modules de la rangée (donc dans la limite de `modules_par_rangee`). Elle n'a pas de cadre par défaut. Ajoute `"bordure": true` pour en tracer un.
 
 #### Repères techniques (IEC 81346)
 
@@ -155,7 +166,7 @@ Le repère est libre: le générateur l'affiche tel quel, sans le contrôler ni 
 
 Liste affichée par `python3 generateur_etiquettes.py --liste-icones`:
 
-`lampe`, `prise`, `four`, `plaque`, `lave-linge`, `lave-vaisselle`, `seche-linge`, `chauffage`, `frigo`, `volet`, `chauffe-eau`, `vmc`, `prise-exterieure`, `multimedia`, `sonnette`, `portail`, `differentiel`, `general`, `borne-ve`, `cabanon`, `seche-serviettes`, `pompe-a-chaleur`.
+`lampe`, `prise`, `four`, `plaque`, `lave-linge`, `lave-vaisselle`, `seche-linge`, `chauffage`, `frigo`, `volet`, `chauffe-eau`, `vmc`, `prise-exterieure`, `multimedia`, `sonnette`, `portail`, `differentiel`, `general`, `borne-ve`, `cabanon`, `seche-serviettes`, `pompe-a-chaleur`, `telerupteur`.
 
 ![Aperçu des icônes intégrées](apercu_icones.png)
 

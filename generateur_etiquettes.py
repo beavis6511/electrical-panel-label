@@ -292,9 +292,12 @@ class Renderer:
     def label(self, item, x, y, w, h):
         lab = self.lab
         pad = lab.get("marge_interne_mm", 1.0) * MM
-        if lab.get("bordure", True):
+        vide = item.get("vide", False)
+        if item.get("bordure", False if vide else lab.get("bordure", True)):
             self.ops.append("q %.2f w 0 G %.2f %.2f %.2f %.2f re S Q" % (
                 lab.get("epaisseur_bordure_pt", 0.5), x, y, w, h))
+        if vide:
+            return
         text = item.get("texte", "")
         sub = item.get("sous_texte", "")
         img = item.get("image")

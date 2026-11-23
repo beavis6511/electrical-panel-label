@@ -132,14 +132,8 @@
           "image": "portail"
         },
         {
-          "repere": "Q21",
-          "texte": "Sonnette",
-          "image": "sonnette"
-        },
-        {
-          "repere": "Q22",
-          "texte": "Prise extérieure",
-          "image": "prise-exterieure"
+          "vide": true,
+          "modules": 2
         },
         {
           "repere": "Q23",

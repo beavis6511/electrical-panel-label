@@ -93,6 +93,17 @@ def _general(p):
     p.line((.55, .95), (.25, .5), (.5, .5), (.4, .05), (.75, .6), (.5, .6), (.55, .95))
 
 
+def _telerupteur(p):
+    p.rect(.12, .62, .76, .32)
+    p.line((.3, .72), (.42, .72), (.42, .84), (.58, .84), (.58, .72), (.7, .72))
+    p.line((.5, .62), (.5, .52))
+    p.line((.5, .52), (.36, .38))
+    p.line((.5, .38), (.5, .3))
+    p.circle(.5, .16, .14)
+    p.line((.4, .06), (.6, .26))
+    p.line((.6, .06), (.4, .26))
+
+
 def _trace(ops):
     def dessiner(p):
         p.ops.append(ops)
@@ -153,4 +164,5 @@ ICONS = {
     "general": _general, "borne-ve": _borne_vE, "cabanon": _cabanon,
     "seche-serviettes": _seche_serviettes,
     "pompe-a-chaleur": _pompe_a_chaleur,
+    "telerupteur": _telerupteur,
 }
