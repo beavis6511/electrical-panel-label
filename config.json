@@ -1,7 +1,10 @@
 {
+  "tableau": {
+    "modules_par_rangee": 13
+  },
   "page": {
     "format": "A4",
-    "orientation": "portrait",
+    "orientation": "paysage",
     "marge_mm": 10,
     "espace_entre_rangees_mm": 8,
     "afficher_titres": true
@@ -14,43 +17,73 @@
     "ratio_image": 0.5,
     "taille_texte_max_pt": 9,
     "taille_texte_min_pt": 4,
-    "gras": true
+    "gras": true,
+    "taille_repere_pt": 6
   },
   "rangees": [
     {
       "titre": "Rangée 1",
       "etiquettes": [
         {
-          "modules": 2,
+          "repere": "Q1",
           "texte": "Différentiel 30 mA",
-          "image": "differentiel"
+          "image": "differentiel",
+          "modules": 2
         },
         {
+          "repere": "Q2",
           "texte": "Éclairage",
           "image": "lampe"
         },
         {
+          "repere": "Q3",
           "texte": "Prises salon",
           "image": "prise"
         },
         {
+          "repere": "Q4",
           "texte": "Prises chambres",
           "image": "prise"
         },
         {
+          "repere": "Q5",
           "texte": "Prises cuisine",
           "image": "prise"
         },
         {
+          "repere": "Q6",
           "texte": "Four",
           "image": "four"
         },
         {
+          "repere": "Q7",
           "texte": "Plaque",
           "image": "plaque"
         },
         {
-          "texte": "Texte seul, sans image"
+          "repere": "Q8",
+          "texte": "Lave-linge",
+          "image": "lave-linge"
+        },
+        {
+          "repere": "Q9",
+          "texte": "Lave-vaisselle",
+          "image": "lave-vaisselle"
+        },
+        {
+          "repere": "Q10",
+          "texte": "Sèche-linge",
+          "image": "seche-linge"
+        },
+        {
+          "repere": "Q11",
+          "texte": "Chauffe-eau",
+          "image": "chauffe-eau"
+        },
+        {
+          "repere": "Q12",
+          "texte": "Cabanon",
+          "image": "cabanon"
         }
       ]
     },
@@ -58,41 +91,60 @@
       "titre": "Rangée 2",
       "etiquettes": [
         {
-          "modules": 2,
+          "repere": "Q13",
           "texte": "Différentiel 30 mA",
-          "image": "differentiel"
+          "image": "differentiel",
+          "modules": 3
         },
         {
-          "texte": "Lave-linge",
-          "image": "lave-linge"
-        },
-        {
-          "texte": "Lave-vaisselle",
-          "image": "lave-vaisselle"
-        },
-        {
-          "texte": "Sèche-linge",
-          "image": "seche-linge"
-        },
-        {
-          "texte": "Chauffe-eau",
-          "image": "chauffe-eau"
-        },
-        {
+          "repere": "Q14",
           "texte": "Chauffage",
           "image": "chauffage"
         },
         {
+          "repere": "Q15",
+          "texte": "Sèche-serviettes",
+          "image": "seche-serviettes"
+        },
+        {
+          "repere": "Q16",
           "texte": "VMC",
           "image": "vmc"
         },
         {
+          "repere": "Q17",
           "texte": "Volets roulants",
           "image": "volet"
         },
         {
+          "repere": "Q18",
           "texte": "Multimédia",
           "image": "multimedia"
+        },
+        {
+          "repere": "Q19",
+          "texte": "Borne VE",
+          "image": "borne-ve"
+        },
+        {
+          "repere": "Q20",
+          "texte": "Portail",
+          "image": "portail"
+        },
+        {
+          "repere": "Q21",
+          "texte": "Sonnette",
+          "image": "sonnette"
+        },
+        {
+          "repere": "Q22",
+          "texte": "Prise extérieure",
+          "image": "prise-exterieure"
+        },
+        {
+          "repere": "Q23",
+          "texte": "Général",
+          "image": "general"
         }
       ]
     }

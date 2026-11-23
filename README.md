@@ -10,6 +10,7 @@ Générateur de PDF noir et blanc pour identifier les disjoncteurs d'un tableau 
 - [Démarrage rapide](#démarrage-rapide)
 - [Fichiers](#fichiers)
 - [Structure de la configuration](#structure-de-la-configuration)
+  - [Section `tableau`](#section-tableau)
   - [Section `page`](#section-page)
   - [Section `etiquette`](#section-etiquette)
   - [Section `rangees`](#section-rangees)
@@ -47,13 +48,24 @@ Sans argument, le script lit `config.json` dans le dossier courant. Sans `-o`, l
 
 ```json
 {
+  "tableau":   { ... },
   "page":      { ... },
   "etiquette": { ... },
   "rangees":   [ ... ]
 }
 ```
 
-Toutes les clés de `page` et `etiquette` sont optionnelles. Seule `rangees` est indispensable.
+Toutes les clés de `tableau`, `page` et `etiquette` sont optionnelles. Seule `rangees` est indispensable.
+
+### Section `tableau`
+
+| Clé | Défaut | Description |
+|---|---|---|
+| `modules_par_rangee` | aucune | Nombre maximal de modules d'une rangée de ton tableau (par exemple `13`). Un avertissement s'affiche si une rangée dépasse |
+
+Exemples pour 13 modules: 1 différentiel de 2 modules et 11 disjoncteurs, ou 1 différentiel de 3 modules et 10 disjoncteurs.
+
+13 modules font 227,5 mm: une A4 en portrait (190 mm utiles) ne suffit pas. Utilise `"orientation": "paysage"` (277 mm utiles) pour garder chaque rangée sur une seule ligne.
 
 ### Section `page`
 
@@ -77,6 +89,7 @@ Valeurs par défaut de toutes les étiquettes.
 | `bordure` | `true` | Trace le cadre de chaque étiquette |
 | `epaisseur_bordure_pt` | `0.5` | Épaisseur du cadre, en points |
 | `ratio_image` | `0.5` | Part de la hauteur occupée par l'image (0 à 1) |
+| `taille_repere_pt` | `6` | Taille du repère affiché au-dessus de l'icône (réduite si trop large) |
 | `taille_texte_max_pt` | `9` | Taille maximale du texte principal |
 | `taille_texte_min_pt` | `4` | Taille minimale du texte principal |
 | `taille_sous_texte_pt` | `6.5` | Taille du sous-texte |
@@ -102,6 +115,7 @@ Liste de rangées. Chaque rangée correspond à une ligne du tableau électrique
 |---|---|---|
 | `modules` | `1` | Nombre de modules occupés. La largeur vaut `modules` × `largeur_module_mm` |
 | `texte` | `""` | Texte principal |
+| `repere` | `""` | Repère technique affiché en petit au-dessus de l'icône (voir ci-dessous) |
 | `sous_texte` | `""` | Petit texte en bas (calibre, type, etc.) |
 | `image` | aucune | Nom d'une icône intégrée ou chemin d'un PNG |
 | `gras` | valeur de `etiquette` | Surcharge pour cette étiquette |
@@ -115,6 +129,21 @@ Exemple:
 
 Une étiquette peut n'avoir que du texte, que de l'image, ou les deux.
 
+#### Repères techniques (IEC 81346)
+
+La clé `repere` affiche un repère de type `-Q1` ou `-K2` au-dessus de l'icône. Selon la norme IEC 81346, la première lettre indique la fonction de l'appareil:
+
+| Lettre | Fonction | Appareils |
+|---|---|---|
+| `Q` | Coupure de puissance | Disjoncteur divisionnaire (Q1, Q2...), interrupteur différentiel, interrupteur-sectionneur, porte-fusible |
+| `K` | Commande | Contacteur (par exemple un contacteur jour/nuit pour chauffe-eau: K1), télérupteur, relais auxiliaire, minuterie |
+
+```json
+{ "repere": "-Q3", "texte": "Prises salon", "image": "prise" }
+```
+
+Le repère est libre: le générateur l'affiche tel quel, sans le contrôler ni le numéroter.
+
 ## Comportement de la mise en page
 
 - Le texte passe à la ligne si besoin. Sa taille diminue jusqu'à `taille_texte_min_pt` pour tenir dans l'étiquette.
@@ -126,7 +155,7 @@ Une étiquette peut n'avoir que du texte, que de l'image, ou les deux.
 
 Liste affichée par `python3 generateur_etiquettes.py --liste-icones`:
 
-`lampe`, `prise`, `four`, `plaque`, `lave-linge`, `lave-vaisselle`, `seche-linge`, `chauffage`, `frigo`, `volet`, `chauffe-eau`, `vmc`, `prise-exterieure`, `multimedia`, `sonnette`, `portail`, `differentiel`, `general`, `borne-ve`, `cabanon`, `seche-serviettes`.
+`lampe`, `prise`, `four`, `plaque`, `lave-linge`, `lave-vaisselle`, `seche-linge`, `chauffage`, `frigo`, `volet`, `chauffe-eau`, `vmc`, `prise-exterieure`, `multimedia`, `sonnette`, `portail`, `differentiel`, `general`, `borne-ve`, `cabanon`, `seche-serviettes`, `pompe-a-chaleur`.
 
 ![Aperçu des icônes intégrées](apercu_icones.png)
 

@@ -301,6 +301,14 @@ class Renderer:
         bold = item.get("gras", lab.get("gras", True))
         iw, ih = w - 2 * pad, h - 2 * pad
         top = y + h - pad
+        rep = item.get("repere", "")
+        if rep:
+            rsize = lab.get("taille_repere_pt", 6)
+            while rsize > 3 and text_width(rep, rsize, True) > iw:
+                rsize -= 0.25
+            self.text_line(rep, rsize, True, x + w / 2, top - rsize * 0.85)
+            top -= rsize * 1.2
+            ih -= rsize * 1.2
         # zone image
         if img:
             ratio = item.get("ratio_image", lab.get("ratio_image", 0.5))
@@ -356,8 +364,13 @@ def build(cfg, base_dir, out):
             pages.append(("\n".join(rend.ops), set(rend.used)))
         rend.ops, rend.used = [], set()
 
+    max_mod = cfg.get("tableau", {}).get("modules_par_rangee")
     strips = []
     for row in cfg.get("rangees", []):
+        total = sum(i.get("modules", 1) for i in row.get("etiquettes", []))
+        if max_mod and total > max_mod:
+            print("Avertissement : rangée '%s' : %d modules, maximum %d."
+                  % (row.get("titre", ""), total, max_mod), file=sys.stderr)
         title = row.get("titre", "")
         cur, cur_w = [], 0.0
         for item in row.get("etiquettes", []):
