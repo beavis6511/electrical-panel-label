@@ -262,7 +262,7 @@ class Renderer:
         kind, val = spec
         if kind == "icon":
             s = min(w, h)
-            lw = max(0.5, s / 22.0)
+            lw = max(0.5, s / 43.0)
             self.ops.append("q %.3f 0 0 %.3f %.3f %.3f cm %.3f w 1 J 1 j 0 G 0 g" % (
                 s, s, x + (w - s) / 2, y + (h - s) / 2, lw / s))
             pen = Pen()
