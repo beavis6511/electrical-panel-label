@@ -293,9 +293,14 @@ class Renderer:
         lab = self.lab
         pad = lab.get("marge_interne_mm", 1.0) * MM
         vide = item.get("vide", False)
-        if item.get("bordure", False if vide else lab.get("bordure", True)):
-            self.ops.append("q %.2f w 0 G %.2f %.2f %.2f %.2f re S Q" % (
-                lab.get("epaisseur_bordure_pt", 0.5), x, y, w, h))
+        ep = lab.get("epaisseur_bordure_pt", 0.5)
+        if vide and "bordure" not in item:
+            if lab.get("bordure", True):
+                self.ops.append("q %.2f w 0 G %.2f %.2f m %.2f %.2f l S "
+                                "%.2f %.2f m %.2f %.2f l S Q" % (
+                                    ep, x, y, x + w, y, x, y + h, x + w, y + h))
+        elif item.get("bordure", lab.get("bordure", True)):
+            self.ops.append("q %.2f w 0 G %.2f %.2f %.2f %.2f re S Q" % (ep, x, y, w, h))
         if vide:
             return
         text = item.get("texte", "")

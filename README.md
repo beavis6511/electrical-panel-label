@@ -41,6 +41,8 @@ Sans argument, le script lit `config.json` dans le dossier courant. Sans `-o`, l
 |---|---|
 | `generateur_etiquettes.py` | Le générateur |
 | `icones.py` | Dessin des icônes vectorielles intégrées |
+| `png_2_vector/` | PNG sources des icônes issues d'images (déjà vectorisées dans `icones.py`) |
+| `apercu_icones.png` | Image des icônes affichée dans ce README |
 | `config.json` | Exemple de configuration |
 | `exemple.pdf` | PDF produit par `config.json` |
 
@@ -115,7 +117,7 @@ Liste de rangées. Chaque rangée correspond à une ligne du tableau électrique
 |---|---|---|
 | `modules` | `1` | Nombre de modules occupés. La largeur vaut `modules` × `largeur_module_mm` |
 | `texte` | `""` | Texte principal |
-| `vide` | `false` | Module vide: l'étiquette occupe `modules` modules sans rien afficher (ni texte, ni image, ni cadre). Sert à laisser un espace entre deux disjoncteurs |
+| `vide` | `false` | Module vide: l'étiquette occupe `modules` modules sans texte ni image, avec un trait en haut et en bas pour la découpe. Sert à laisser un espace entre deux disjoncteurs |
 | `repere` | `""` | Repère technique affiché en petit au-dessus de l'icône (voir ci-dessous) |
 | `sous_texte` | `""` | Petit texte en bas (calibre, type, etc.) |
 | `image` | aucune | Nom d'une icône intégrée ou chemin d'un PNG |
@@ -138,7 +140,9 @@ Pour laisser un espace entre deux disjoncteurs, ajoute une étiquette `vide`:
 { "vide": true, "modules": 2 }
 ```
 
-Elle compte dans le total de modules de la rangée (donc dans la limite de `modules_par_rangee`). Elle n'a pas de cadre par défaut. Ajoute `"bordure": true` pour en tracer un.
+Elle compte dans le total de modules de la rangée (donc dans la limite de `modules_par_rangee`).
+
+Par défaut, seuls un trait en haut et un trait en bas sont tracés, pour pouvoir découper aux ciseaux en suivant les traits. Les côtés restent ouverts: les bordures des étiquettes voisines servent de traits de coupe. Avec `"bordure": true`, le cadre complet est tracé. Avec `"bordure": false`, rien n'est tracé. Si `bordure` est désactivée dans la section `etiquette`, les traits sont supprimés aussi.
 
 #### Repères techniques (IEC 81346)
 
